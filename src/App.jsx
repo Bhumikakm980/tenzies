@@ -8,7 +8,7 @@ import ReactConfetti from 'react-confetti';
 function App() {
   
   var isWon=false;
-  const[dieNum,setDieNum]=useState(generateRandomDie());
+  const[dieNum,setDieNum]=useState(()=>generateRandomDie());
 
   if(dieNum.every(item=>item.isHold)&& dieNum.every(item=>item.randomVal==dieNum[0].randomVal)){
      isWon=true;
