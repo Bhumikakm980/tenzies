@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import './App.css'
-import Die from './components/Die'
+import Die from './components/Die';
+import ReactConfetti from 'react-confetti';
 
 
 function App() {
@@ -64,9 +65,11 @@ function App() {
   return (
     <>
     <main className="mainComponent">
+     
     {/* {dieNum.map(()<Die val={dieNum} clickHold={clickHold}></Die>) */}
     <p className='disclaimer'>Roll until all dices are same.Click each die to freeze it at its current value between rolls</p>
     <div className="button-container">
+    {isWon==true&&<ReactConfetti></ReactConfetti>} 
     {dieNum.map((item,i)=><Die randomVal={item.randomVal} isHold={item.isHold} clickHold={clickHold} id={i}></Die>)}
     </div>
     {isWon==false?
